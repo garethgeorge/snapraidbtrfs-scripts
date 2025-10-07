@@ -24,7 +24,7 @@ echo "🚀 --- Starting SnapRAID Sync Process --- 🚀"
 
 # 1. Create Btrfs snapshots for all ocean disks.
 echo
-echo "--- Step 1/2: Creating Btrfs Snapshots ---"
+echo "--- Step 1/3: Creating Btrfs Snapshots ---"
 if ! "$SCRIPT_DIR/create-btrfs-snapshots.sh"; then
     echo "❌ ERROR: Snapshot creation failed. Aborting sync."
     exit 1
@@ -34,12 +34,20 @@ echo "✅ Snapshots created successfully."
 
 # 2. Run the SnapRAID sync command.
 echo
-echo "--- Step 2/2: Running SnapRAID Sync ---"
+echo "--- Step 2/3: Running SnapRAID Sync ---"
 if ! snapraid sync; then
     echo "❌ ERROR: 'snapraid sync' command failed."
     exit 1
 fi
 echo "✅ SnapRAID sync completed successfully."
+
+# 3. Cleanup old snapshots
+echo 
+echo "--- Step 3/3: Cleaning Up Old Snapshots ---"
+if ! "$SCRIPT_DIR/remove-old-btrfs-snapshots.sh"; then
+    echo "❌ ERROR: Cleanup of old snapshots failed."
+    exit 1
+fi
 
 echo
 echo "✨ --- SnapRAID Sync Process Finished --- ✨"
