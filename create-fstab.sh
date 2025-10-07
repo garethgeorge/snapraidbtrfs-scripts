@@ -22,9 +22,9 @@ MERGERFS_RESTRICT_TO_SUBDIR="/ocean" # only share files from each disk's /ocean 
 # allow_other: lets non-root users see the mount
 # use_ino: helps applications that track files by inode
 # category.create=eplfs: (Existing Path, Least Free Space) a smart policy for creating new files
-# minfreespace=200G: stops writing to a disk when it has less than 200GB free
+# minfreespace=500G: stops writing to a disk when it has less than 500GB free
 # fsname=oceanpool: a descriptive name that will appear in commands like `df`
-MERGERFS_OPTIONS="defaults,allow_other,use_ino,category.create=eplfs,minfreespace=200G,fsname=oceanpool"
+MERGERFS_OPTIONS="defaults,allow_other,use_ino,category.create=eplfs,minfreespace=500G,fsname=oceanpool"
 
 # --- Main Logic ---
 
