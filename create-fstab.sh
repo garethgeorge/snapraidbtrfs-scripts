@@ -67,15 +67,15 @@ BEGIN {
     if (fs == fstype && label ~ pattern) {
         # Mark this label as seen by storing the UUID of the device.
         seen_labels[label] = uuid
-        mount_point = "/mnt/" label mergerfs_restrict
+        mount_point = "/mnt/" label
         # Print the fstab line for the individual disk (data or parity)
         printf "UUID=%-36s %-20s %-6s %-20s 0 0\n", uuid, mount_point, fstype, options
         # ONLY if the label matches the data disk pattern, add it to the mergerfs list.
         if (label ~ data_pattern) {
             if (merger_paths == "") {
-                merger_paths = mount_point
+                merger_paths = mount_point mergerfs_restrict
             } else {
-                merger_paths = merger_paths ":" mount_point 
+                merger_paths = merger_paths ":" mount_point mergerfs_restrict
             }
         }
     }
