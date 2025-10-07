@@ -17,7 +17,7 @@ DATA_LABEL_PATTERN="^oceand[0-9][0-9]$"
 MOUNT_OPTIONS="defaults,noatime,nofail"
 
 # LUKS configuration
-LUKS_KEY_FILE="/mnt/usb-secrets/ocean_luks_key"
+LUKS_KEY_FILE="/etc/keys/ocean_luks_key"
 LUKS_OPTIONS="luks,discard"
 
 # MergerFS configuration

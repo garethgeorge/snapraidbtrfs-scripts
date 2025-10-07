@@ -15,7 +15,7 @@
 set -e # Exit immediately if a command exits with a non-zero status.
 
 # --- Configuration ---
-LUKS_KEY_FILE="/mnt/usb-secrets/ocean_luks_key"
+LUKS_KEY_FILE="/etc/keys/ocean_luks_key"
 LABEL_PATTERN="^ocean[dp][0-9][0-9]$"
 
 # --- Pre-flight Checks ---
