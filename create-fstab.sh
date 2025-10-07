@@ -91,7 +91,7 @@ BEGIN {
     if (fs == fstype && label ~ pattern) {
         # Check for duplicate Btrfs labels.
         if (label in seen_labels) {
-            printf "WARNING: Duplicate Btrfs label \'%s\' detected. Original UUID: %s, Conflicting UUID: %s. Ignoring conflicting device.\n", label, seen_labels[label], uuid > "/dev/stderr"
+            printf "WARNING: Duplicate Btrfs label \\x27%s\\x27 detected. Original UUID: %s, Conflicting UUID: %s. Ignoring conflicting device.\n", label, seen_labels[label], uuid > "/dev/stderr"
             next
         }
         seen_labels[label] = uuid
